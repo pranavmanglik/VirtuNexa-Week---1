@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.virtunexa.week1.controllers.DashboardController"
+      spacing="20" alignment="TOP_CENTER">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Digital Clock -->
+    <Label fx:id="clockLabel" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+
+    <!-- Expense Form -->
+    <GridPane hgap="10" vgap="10">
+        <Label text="Amount:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="amountField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Category:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="categoryBox" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Date:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="datePicker" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Description:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="descriptionField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Button text="Add Expense" onAction="#handleAddExpense" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <!-- Put it separately below -->
+    <Button text="Generate Report" onAction="#handleGenerateReport" />
+
+    <!-- Expense Table -->
+    <TableView fx:id="expenseTable" prefHeight="200">
+        <columns>
+            <TableColumn text="Amount" fx:id="amountColumn" />
+            <TableColumn text="Category" fx:id="categoryColumn" />
+            <TableColumn text="Date" fx:id="dateColumn" />
+            <TableColumn text="Description" fx:id="descriptionColumn" />
+            <TableColumn text="Action" fx:id="actionColumn" />
+        </columns>
+    </TableView>
+
+</VBox>
